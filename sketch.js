@@ -7,6 +7,7 @@ var engine, world;
 var backgroundImg;
 
 var bg = "sunrise1.png";
+var hour = 0;
 
 function preload() {
   getBackgroundImg();
@@ -22,6 +23,9 @@ function draw() {
   // add condition to check if any background image is there to add
   if (backgroundImg) {
     background(backgroundImg);
+    textSize(20);
+    text("Time : ", 10, 30);
+    text(hour, 80, 30);
   }
 
   Engine.update(engine);
@@ -41,7 +45,7 @@ async function getBackgroundImg() {
 
   // write code slice the datetime
   var datetime = responseJson.datetime;
-  var hour = datetime.slice(11, 13);
+  hour = datetime.slice(11, 13);
 
   console.log(hour);
 
